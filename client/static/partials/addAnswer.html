@@ -1,0 +1,43 @@
+<div>
+  <h2>{{question.title}}</h2>
+  <p>{{question.description}}</p>
+
+
+
+
+<h3>Add Your Answer Here: </h3>
+  <p class="alert alert-success" ng-show="warning">{{warning}}</p>
+  <form name="myForm" novalidate>
+    <div class="form-group">
+      <label>Your Answer</label>
+      <textarea ng-model="new_answer.text"
+                class="form-control"
+                name="myAnswer"
+                rows="8"
+                cols="40"
+                ng-minlength="5"
+                ng-maxlength="140"
+                required></textarea>
+    </div>
+    <div ng-messages="myForm.myAnswer.$error"
+         ng-if="submitted"
+         style="color:red"
+         role="alert">
+      <div ng-message="required">Answer cannot be blank!</div>
+      <div ng-message="minlength">Answer must longger than 5 letters.</div>
+      <div ng-message="maxlength">Answer must less than 140 letters.</div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Description(optional)</label>
+      <textarea ng-model="new_answer.description"
+                class="form-control"
+                rows="8"
+                cols="40"></textarea>
+    </div>
+
+    <button type="submit" ng-click="cancelAnswer()">Cancel</button>
+    <button type="submit" ng-click="addAnswer()">Submit</button>
+  </form>
+</div>

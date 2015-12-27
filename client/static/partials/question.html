@@ -1,0 +1,17 @@
+<div>
+  <h2>{{question.title}}</h2>
+  <p>{{question.description}}</p>
+
+
+<br>
+<br>
+<br>
+  <div ng-repeat="answer in question.answers | orderBy:'-likes'">
+
+    <h3>{{answer.username}} says: {{answer.text}}</h3>
+    <p>{{answer.description}}</p>
+    <button type="submit" ng-click="likes(answer)">Like</button> {{answer.likes}}
+      <hr>
+  </div>
+
+</div>

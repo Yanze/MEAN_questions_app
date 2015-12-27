@@ -1,0 +1,19 @@
+<div class="col-md-12 login">
+  <form name="myForm" novalidate="">
+    <h2>Please enter your name to login!</h2>
+    <input name="myUsername"
+           type="text"
+           ng-model="username"
+           ng-minlength="3"
+           ng-maxlength="10"
+           required>
+           
+    <button type="submit" class="btn btn-primary btn-sm" ng-click="enter()">Enter</button>
+
+    <div ng-messages="myForm.myUsername.$error" ng-if="submitted" style="color:red" role="alert">
+      <div ng-message="required">Name cannot be blank!</div>
+      <div ng-message="minlength">Your field is too short</div>
+      <div ng-message="maxlength">Your field is too long</div>
+    </div>
+  </form>
+</div>
